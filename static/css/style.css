@@ -105,3 +105,43 @@
 .btn-save {
     width: 150px !important;
 }
+
+.question-page-avatar {
+    
+    border-radius: 50%;
+    overflow: hidden;
+    height: 150px;
+    /* margin-left: 40px; */
+}
+
+#qpage-tags {
+    font-weight: 600;
+    font-size: medium;
+}
+
+/* .full-question {
+    margin-left: ;
+} */
+
+#hr-qpage {
+    margin-left: 40;
+	height: 2px;
+	background: rgb(0, 0, 0);
+}
+
+.answer {
+    border: 1.5px solid gray;
+    border-radius: 6px;
+    padding: 20px 20px;
+    margin-bottom: 20px;
+}
+
+.answer-avatar {
+    border-radius: 50%;
+    overflow: hidden;
+    height: 70px;     
+}
+
+.answer-text {
+    margin-left: 15px;
+}
