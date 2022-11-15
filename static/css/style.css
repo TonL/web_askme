@@ -88,3 +88,20 @@
     margin-bottom: 15px;
 
 }
+
+.settings-value {
+    margin-bottom: 35px;
+}
+
+.settings-avatar {
+    border-radius: 50%;
+    overflow: hidden;
+    height: 200px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+.btn-save {
+    width: 150px !important;
+}
