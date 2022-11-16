@@ -38,6 +38,9 @@
     border-radius: 50%;
     overflow: hidden;
     height: 40px;
+    width: 40px;
+    object-fit: cover;
+
     margin-left: 10px;
     margin-right: 10px;
 
@@ -97,6 +100,8 @@
     border-radius: 50%;
     overflow: hidden;
     height: 200px;
+    width: 200px;
+    object-fit: cover;
     margin-left: 10px;
     margin-right: 10px;
 
@@ -111,6 +116,8 @@
     border-radius: 50%;
     overflow: hidden;
     height: 150px;
+    width: 150px;
+    object-fit: cover;
     /* margin-left: 40px; */
 }
 
@@ -139,7 +146,9 @@
 .answer-avatar {
     border-radius: 50%;
     overflow: hidden;
-    height: 70px;     
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
 }
 
 .answer-text {
