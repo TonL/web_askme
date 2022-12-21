@@ -47,7 +47,7 @@
 }
 
 #search-form {
-    margin-left: 15%;
+    margin-left: 50px;
     width: 20em;
 }
 
@@ -69,18 +69,35 @@
 .user-submenu {
     font-size: small;
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
 }
 
-#logout-btn {
+.sign-up-btn-space {
     margin-left: 10px;
 }
 
 
+#logout-btn {
+    margin-left: 10px;
+
+}
+
 .sidebar {
+    margin-top: 70px;
+}
+
+.sidebar-header {
     text-align: center;
     font-size: x-large;
     font-weight: 600;
+}
+
+.best-members {
+    margin-top: 100px;
+}
+
+.tags {
+    text-align: center;
 }
 
 .form-label {
@@ -111,6 +128,10 @@
     width: 150px !important;
 }
 
+.btn-space {
+    margin-right: 10px;
+}
+
 .question-page-avatar {
     
     border-radius: 50%;
@@ -118,6 +139,10 @@
     height: 150px;
     width: 150px;
     object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 15px;
     /* margin-left: 40px; */
 }
 
@@ -146,11 +171,64 @@
 .answer-avatar {
     border-radius: 50%;
     overflow: hidden;
-    height: 70px;
-    width: 70px;
+    height: 100px;
+    width: 100px;
     object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 .answer-text {
     margin-left: 15px;
+}
+
+.svg-icon {
+    fill: #7c7c7c;
+}
+.vote-count {
+    color: #7c7c7c;
+    font-size: x-large;
+    font-weight: normal;
+    vertical-align: baseline;
+}
+
+.vote-box {
+    width: fit-content !important;
+    border: 1px solid gray;
+    border-radius: 6px;
+    margin: 15px auto 5px;
+    display: block;
+
+}
+
+.svg-icon {
+    vertical-align: baseline !important;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.full-question {
+    margin-top: 30px;
+}
+
+.answer-left-bar {
+    border-right: 1px solid gray;
+}
+
+/*.question-creator {*/
+/*    text-align: center;*/
+/*}*/
+
+.answer-check-correct {
+    margin-top:40px;
+    margin-left: 15px;
+    font-size: large;
+    /*color: #198754;*/
+}
+
+.login-error {
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
