@@ -8,64 +8,11 @@
     <span>New questions</span> 
     <span class="hot-questions"><a href="#">Hot questions</a></span>    
 </div>
-<div class="question">
-    <div class="row">
-        <div class="col-2">
-            <div class="avatar">
-                <img src="{% static "img/gigachad.jpg" %}" alt="" />    
-            </div>
-        </div>
-        <div class="col-10">
-            <h2 class="question-title"><a href="{% url 'question' %}">How to build a moon park?</a></h2>
-            <div class="question-text">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ea, expedita hic magnam officia qui quod sed soluta suscipit vitae.
-                </p>
 
-                <div>
 
-                    <span id="qpage-tags">Tags:</span>
-                    <span><a href="#">moon</a></span>
-                    <span><a href="#">park</a></span>
-                    <span><a href="#">build</a></span>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="question">
-    <div class="row">
-        <div class="col-2">
-            <div class="avatar">
-                <img src="{% static "img/avatar-2.jpg" %}" alt="" />
-            </div>
-        </div>
-        <div class="col-10">
-            <h2 class="question-title">Question 2</h2>
-            <div class="question-text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ea, expedita hic magnam officia qui quod sed soluta suscipit vitae.
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="question">
-    <div class="row">
-        <div class="col-2">
-            <div class="avatar">
-                <img src="{% static "img/avatar-3.jpg" %}" alt="" />
-            </div>
-        </div>
-        <div class="col-10">
-            <h2 class="question-title">Question 3</h2>
-            <div class="question-text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ea, expedita hic magnam officia qui quod sed soluta suscipit vitae.
-            </div>
-        </div>
-    </div>
-</div>
+{% include 'inc/question_item.html' %}
+{% include 'inc/question_item.html' %}
+{% include 'inc/question_item.html' %}
 
 
 
