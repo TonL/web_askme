@@ -8,19 +8,21 @@
             </div>
         </div>
         <div class="col-10">
-            <h2 class="question-title"><a href="{% url 'question' question_id=1 %}">How to build a moon park?</a></h2>
+            <h2 class="question-title"><a href="{% url 'question' question_id=question.id %}">{{ question.title }}</a></h2>
             <div class="question-text">
                 <p>
+                    {{ question.text }}
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ea, expedita hic magnam officia qui quod sed soluta suscipit vitae.
                 </p>
 
-                <div>
+                <span>
+                    <a href="{% url 'question' question_id=question.id %}">answers({{ question.answers_number }})</a>
 
-                    <span id="qpage-tags">Tags:</span>
-                    <span><a href="#">moon</a></span>
-                    <span><a href="#">park</a></span>
-                    <span><a href="#">build</a></span>
-                </div>
+                    <span id="qpage-tags" class="ms-3">Tags:</span>
+                    {% for tag in question.tags %}
+                        <a href="#">{{ tag }}</a>
+                    {% endfor %}
+                </span>
 
             </div>
         </div>

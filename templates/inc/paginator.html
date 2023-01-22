@@ -1,12 +1,24 @@
-<nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-        <li class="page-item enabled">
-            <a href="?page=0" class="page-link">Previous</a>
-        </li>
-        <li class="page-item active"><a class="page-link" href="?page=1"> 1 </a></li>
+<nav aria-label="...">
+    <ul class="pagination">
 
-        <li class="page-item enabled">
-            <a href="?page=2" class="page-link" href="#">Next</a>
+        {% if page_obj.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page=1">&laquo; First</a>
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+        {% else %}
+            <li class="page-item disabled"><a class="page-link" href="?page=1">&laquo; First</a>
+        {% endif %}
+            </li>
+
+        <li class="page-item active">
+            <a class="page-link" href="#">{{ page_obj.number }}</a>
         </li>
+
+        {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+        {% else %}
+            <li class="page-item disabled"><a class="page-link" href="">Last &raquo</a>
+        {% endif %}
+            </li>
     </ul>
 </nav>
