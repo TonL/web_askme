@@ -1,5 +1,4 @@
 """askme URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
 Examples:
@@ -14,15 +13,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
 from app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
-    path('question', views.question, name='question'),
-    path('settings/', views.settings, name='settings'),
-    path('ask/', views.ask, name='ask'),
-    path('login/', views.login, name='login'),
-    path('signup/', views.signup, name='signup')
+    path('', include('app.urls'))
 ]
