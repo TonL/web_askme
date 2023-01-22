@@ -3,19 +3,15 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 from . import models
 
-def paginate(objects_list, request, per_page=10):
+def paginate(objects_list, request, per_page=5):
     paginator = Paginator(objects_list, per_page)
-    page_number = request.GET.get('page')
+    page_number = request.GET.get('page', '1')
     page_obj = paginator.page(page_number)
     return page_obj
 
 def index(request):
-    contex = {'questions': models.QUESTIONS}
-    paginator = Paginator(models.QUESTIONS, 5)
-    page_number = request.GET.get('page', '1')
-    page_obj = paginator.page(page_number)
-
-    contex = {'questions': page_obj.object_list, 'page_obj': page_obj}
+    page = paginate(models.QUESTIONS, request)
+    contex = {'questions': page.object_list, 'page_obj': page}
     return render(request, 'index.html', contex)
 
 def question(request, question_id: int):
