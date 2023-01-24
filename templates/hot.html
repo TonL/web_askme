@@ -5,9 +5,10 @@
 {% block content %}
 
 <div class="content-title">
-    <span>Tag: {{ tag }}</span>
+    <span class="new-questions-page-from-hot"><a href="{% url 'index' %}">New questions</a></span>
+    <span>Hot questions</span>
 </div>
-
+    
 {% for question in questions %}
     {% include 'inc/question_item.html' %}
 {% endfor %}

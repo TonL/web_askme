@@ -1,121 +1,53 @@
 {% extends 'inc/base.html' %}
 
 {% load static %}
+<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="{% static "css/style.css" %}" rel="stylesheet">
+
 
 {% block content %}
 
-<div class="full-question">
+    <div class="full-question" style="    border: 1.5px solid gray;
+    border-radius: 6px;
+    padding: 20px 20px;
+    margin-bottom: 20px;">
     <div class="row">
 
-        <div class="col-3">
-            <img class="question-page-avatar" src="{% static 'img/gigachad.jpg' %}" alt="">
+        <div class="col-3" style="border-right: 1px solid gray;">
+
+            <img class="question-page-avatar" style="" src="{{ question.profile.avatar.url }}" alt="">
+
+            <div class="user-name" style="text-align: center; margin-top: 5px">{{ question.profile.user.username }}</div>
 
             <div class="vote-box">
                 <span class="svg-icon-sp"><svg class="svg-icon arrowDown" width="16" height="16" viewBox="0 0 115.4 122.88"><path d="M24.94,55A14.66,14.66,0,0,0,4.38,75.91l43.45,42.76a14.66,14.66,0,0,0,20.56,0L111,76.73A14.66,14.66,0,0,0,90.46,55.82l-18,17.69-.29-59.17c-.1-19.28-29.42-19-29.33.24l.29,58.34L24.94,55Z"/></svg></span>
-                <span class="vote-count" data-value="0">0</span>
+                <span class="vote-count" data-value="0">{{ question.rating }}</span>
                 <span class="svg-icon-sp"><svg class="svg-icon arrowUp" width="16" height="16" viewBox="0 0 115.4 122.88"><path d="M24.94,67.88A14.66,14.66,0,0,1,4.38,47L47.83,4.21a14.66,14.66,0,0,1,20.56,0L111,46.15A14.66,14.66,0,0,1,90.46,67.06l-18-17.69-.29,59.17c-.1,19.28-29.42,19-29.33-.25L43.14,50,24.94,67.88Z"/></svg></span>
             </div>
 
         </div>
-        <div class="col-9">
-            <h2>{{ question.title }}</h2>
-            <p> {{ question.text }}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro at voluptates accusantium ab accusamus, temporibus
-                harum. Dolor illum facilis nobis corporis? Corporis iusto perferendis commodi, cupiditate maxime accusantium quas
-                voluptates?</p>
-
-
-
-
-            <div>
-                <span id="qpage-tags" class="ms-3">Tags:</span>
-                {% for tag in question.tags %}
-                    <a href="#">{{ tag }}</a>
-                {% endfor %}
+        <div class="col-9" style="">
+            <div style="margin-left: 15px">
+                <h2>{{ question.title }}</h2>
+                <p>{{ question.text }}</p>
+                <div>
+                    <span id="qpage-tags" class="ms-3">Tags:</span>
+                    {% for tag in question.tags.all %}
+                        <a href="{% url 'tag' tag.name %}">{{ tag }}</a>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
 </div>
-<hr id="hr-qpage">
+{#<hr id="hr-qpage">#}
 <h4 class="mt-5">Answers:</h4>
 
-<div class="answer">
-    <div class="row">
-        <div class="col-2 answer-left-bar">
-            <img class="answer-avatar" src="{% static 'img/avatar-1.jpg' %}" alt="">
-            <div class="vote-box">
-                <span class="svg-icon-sp"><svg class="svg-icon arrowDown" width="16" height="16" viewBox="0 0 115.4 122.88"><path d="M24.94,55A14.66,14.66,0,0,0,4.38,75.91l43.45,42.76a14.66,14.66,0,0,0,20.56,0L111,76.73A14.66,14.66,0,0,0,90.46,55.82l-18,17.69-.29-59.17c-.1-19.28-29.42-19-29.33.24l.29,58.34L24.94,55Z"/></svg></span>
-                <span class="vote-count" data-value="0">0</span>
-                <span class="svg-icon-sp"><svg class="svg-icon arrowUp" width="16" height="16" viewBox="0 0 115.4 122.88"><path d="M24.94,67.88A14.66,14.66,0,0,1,4.38,47L47.83,4.21a14.66,14.66,0,0,1,20.56,0L111,46.15A14.66,14.66,0,0,1,90.46,67.06l-18-17.69-.29,59.17c-.1,19.28-29.42,19-29.33-.25L43.14,50,24.94,67.88Z"/></svg></span>
-            </div>
-        </div>
-        <div class="col-10">
-            <div class="answer-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus recusandae architecto iusto omnis nulla quia atque
-                quibusdam explicabo nobis quidem assumenda nihil, ea alias ipsum placeat quae adipisci, odio ipsa?
-            </div>
+{% for answer in answers %}
+    {% include 'inc/answer.html' %}
+{% endfor %}
 
-            <div class="form-check answer-check-correct">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Correct answer!
-                </label>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="answer">
-    <div class="row">
-        <div class="col-2 answer-left-bar">
-            <img class="answer-avatar" src="{% static 'img/avatar-1.jpg' %}" alt="">
-            <div class="vote-box">
-                <span class="svg-icon-sp"><svg class="svg-icon arrowDown" width="16" height="16" viewBox="0 0 115.4 122.88"><path d="M24.94,55A14.66,14.66,0,0,0,4.38,75.91l43.45,42.76a14.66,14.66,0,0,0,20.56,0L111,76.73A14.66,14.66,0,0,0,90.46,55.82l-18,17.69-.29-59.17c-.1-19.28-29.42-19-29.33.24l.29,58.34L24.94,55Z"/></svg></span>
-                <span class="vote-count" data-value="0">0</span>
-                <span class="svg-icon-sp"><svg class="svg-icon arrowUp" width="16" height="16" viewBox="0 0 115.4 122.88"><path d="M24.94,67.88A14.66,14.66,0,0,1,4.38,47L47.83,4.21a14.66,14.66,0,0,1,20.56,0L111,46.15A14.66,14.66,0,0,1,90.46,67.06l-18-17.69-.29,59.17c-.1,19.28-29.42,19-29.33-.25L43.14,50,24.94,67.88Z"/></svg></span>
-            </div>
-        </div>
-        <div class="col-10">
-            <div class="answer-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus recusandae architecto iusto omnis nulla quia atque
-                quibusdam explicabo nobis quidem assumenda nihil, ea alias ipsum placeat quae adipisci, odio ipsa?
-            </div>
-
-            <div class="form-check answer-check-correct">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Correct answer!
-                </label>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="answer">
-    <div class="row">
-        <div class="col-2 answer-left-bar">
-            <img class="answer-avatar" src="{% static 'img/avatar-1.jpg' %}" alt="">
-            <div class="vote-box">
-                <span class="svg-icon-sp"><svg class="svg-icon arrowDown" width="16" height="16" viewBox="0 0 115.4 122.88"><path d="M24.94,55A14.66,14.66,0,0,0,4.38,75.91l43.45,42.76a14.66,14.66,0,0,0,20.56,0L111,76.73A14.66,14.66,0,0,0,90.46,55.82l-18,17.69-.29-59.17c-.1-19.28-29.42-19-29.33.24l.29,58.34L24.94,55Z"/></svg></span>
-                <span class="vote-count" data-value="0">0</span>
-                <span class="svg-icon-sp"><svg class="svg-icon arrowUp" width="16" height="16" viewBox="0 0 115.4 122.88"><path d="M24.94,67.88A14.66,14.66,0,0,1,4.38,47L47.83,4.21a14.66,14.66,0,0,1,20.56,0L111,46.15A14.66,14.66,0,0,1,90.46,67.06l-18-17.69-.29,59.17c-.1,19.28-29.42,19-29.33-.25L43.14,50,24.94,67.88Z"/></svg></span>
-            </div>
-        </div>
-        <div class="col-10">
-            <div class="answer-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus recusandae architecto iusto omnis nulla quia atque
-                quibusdam explicabo nobis quidem assumenda nihil, ea alias ipsum placeat quae adipisci, odio ipsa?
-            </div>
-
-            <div class="form-check answer-check-correct">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Correct answer!
-                </label>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="mb-3">
     <label for="exampleFormControlTextarea1" class="form-label">Write your answer</label>

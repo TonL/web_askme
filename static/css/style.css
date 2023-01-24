@@ -61,10 +61,16 @@
     margin-bottom: 20px;
 }
 
-.hot-questions {
-    font-size: medium !important; 
+.hot-questions-page-from-index {
+    font-size: medium !important;
     margin-left: 5px;
 }
+
+.new-questions-page-from-hot {
+    font-size: medium !important;
+    margin-right: 5px;
+}
+
 
 .user-submenu {
     font-size: small;
@@ -93,7 +99,7 @@
 }
 
 .best-members {
-    margin-top: 100px;
+    margin-top: 20px;
 }
 
 .tags {
@@ -142,7 +148,6 @@
     margin-left: auto;
     margin-right: auto;
     display: block;
-    margin-bottom: 15px;
     /* margin-left: 40px; */
 }
 
@@ -213,7 +218,8 @@
 }
 
 .answer-left-bar {
-    border-right: 1px solid gray;
+    margin-right: 20px;
+    /*border-right: 10px blue;*/
 }
 
 /*.question-creator {*/

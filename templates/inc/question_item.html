@@ -4,23 +4,18 @@
     <div class="row">
         <div class="col-2">
             <div class="avatar">
-                <img src="{% static "img/gigachad.jpg" %}" alt="" />
+                <img src="{{ question.profile.avatar.url }}" alt="" />
             </div>
         </div>
         <div class="col-10">
             <h2 class="question-title"><a href="{% url 'question' question_id=question.id %}">{{ question.title }}</a></h2>
             <div class="question-text">
-                <p>
-                    {{ question.text }}
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ea, expedita hic magnam officia qui quod sed soluta suscipit vitae.
-                </p>
+                <p>{{ question.text }}</p>
 
                 <span>
-                    <a href="{% url 'question' question_id=question.id %}">answers({{ question.answers_number }})</a>
-
-                    <span id="qpage-tags" class="ms-3">Tags:</span>
-                    {% for tag in question.tags %}
-                        <a href="#">{{ tag }}</a>
+                    <span id="qpage-tags">Tags:</span>
+                    {% for tag in question.tags.all %}
+                        <a href="{% url 'tag' tag.name %}">{{ tag }}</a>
                     {% endfor %}
                 </span>
 

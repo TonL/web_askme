@@ -9,8 +9,8 @@
     <title>ASK ME</title>
 
     <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
-    <!-- Custom styles for this template -->
     <link href="{% static "css/style.css" %}" rel="stylesheet">
+
 </head>
 <body class="d-flex flex-column h-100">
 <header>
@@ -59,19 +59,21 @@
                 <div class="sidebar">
                     <div>
                         <div class="sidebar-header">Popular tags</div>
+
                         <div class="tags">
-                            <a href="#">moon</a>
-                            <a href="#">moon</a>
-                            <a href="#">moon</a>
+                            {% for tag in popular_tags %}
+                                <div><a href="{% url 'tag' tag.name %}">{{ tag.name }}</a></div>
+                            {% endfor %}
                         </div>
+
                     </div>
 
-                    <div class="best-members">
+                    <div class="best-members" style="margin-top: 30px">
                         <div class="sidebar-header">Best members</div>
                         <div class="tags">
-                            <div><a href="#">Mr. Freeman</a></div>
-                            <div><a href="#">Ryan Gosling</a></div>
-                            <div><a href="#">Oleg Mongol</a></div>
+                            {% for user in best_members %}
+                                <div>{{ user.user.username }}</div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
